@@ -1,0 +1,4 @@
+[
+  "tests.py::test_insert_coin",
+  "tests.py::test_change"
+]
