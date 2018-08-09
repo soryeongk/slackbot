@@ -1,19 +1,15 @@
 from rtmbot import RtmBot
 from rtmbot.core import Plugin
-
+import chat_logic
 import secret
 
 
 class HelloPlugin(Plugin):
     def process_message(self, data):
-        if "애란" in data["text"]:
-            self.outputs.append([data["channel"], "불렀어?"])
-        elif "주사위" == data["text"]:
-            die = str(random.randint(1, 6))
-            self.outputs.append([data["channel"], die])
-        else:
-            pass
-
+        print(data)
+        reply = chat_logic.answer(data["text"])
+        if reply is not None:
+            self.outputs.append([data["channel"], reply])
 
 config = {
     "SLACK_TOKEN": secret.SLACK_TOKEN,
